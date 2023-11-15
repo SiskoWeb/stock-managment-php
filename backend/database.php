@@ -39,6 +39,8 @@ class Database
             die("Query failed: " . $e->getMessage());
         }
     }
+
+    
     public function get_Products($category = null)
     {
         $query = "SELECT * FROM products";
@@ -63,6 +65,23 @@ class Database
             die("Query failed: " . $e->getMessage());
         }
     }
+
+    public function get_user($user)
+    {
+       
+
+        try {
+            $stmt = $this->pdo->prepare("SELECT * FROM users WHERE userName = :userName");
+            $stmt->execute(['userName' => $user]); 
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $user;
+         
+
+        } catch (PDOException $e) {
+            die("Query failed: " . $e->getMessage());
+        }
+    }
+   
 }
 ?>
 

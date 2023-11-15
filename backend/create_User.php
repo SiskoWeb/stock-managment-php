@@ -7,14 +7,13 @@ $database = new Database();
 // User data to be added
 $userToAdd = [
     "userName" => "yassine",
-    "password" => password_hash("sisko", PASSWORD_DEFAULT) // Use password_hash for secure password storage
+    "password" => "siskoweb"
 ];
 
 // Prepare the SQL query
-$query = "INSERT INTO user (userName, password) VALUES (?, ?)";
+$query = "INSERT INTO users (userName, password) VALUES (?, ?)";
 
-// Use a transaction to ensure atomicity
-$database->executeQuery("START TRANSACTION");
+
 
 try {
     // Execute the query with user data
@@ -22,11 +21,10 @@ try {
         $userToAdd['userName'],
         $userToAdd['password']
     ];
-
+   
     $database->executeQuery($query, $params);
 
-    // Commit the transaction if the query is successful
-    $database->executeQuery("COMMIT");
+
 
     echo "User added successfully.";
 } catch (Exception $e) {

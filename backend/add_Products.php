@@ -30,14 +30,85 @@ $productsToAdd = [
         "quantity" => 50,
         "min_stock_quantity" => 5,
     ],
+    [
+        "name" => "Product 1",
+        "price" => 19.99,
+        "description" => "Description 1",
+        "image_url" => "image1.jpg",
+        "category" => "Category 1",
+        "quantity" => 100,
+        "min_stock_quantity" => 10,
+    ],
+    [
+        "name" => "Product 2",
+        "price" => 29.99,
+        "description" => "Description 2",
+        "image_url" => "image2.jpg",
+        "category" => "Category 2",
+        "quantity" => 50,
+        "min_stock_quantity" => 5,
+    ],
+    [
+        "name" => "Product 1",
+        "price" => 19.99,
+        "description" => "Description 1",
+        "image_url" => "image1.jpg",
+        "category" => "Category 1",
+        "quantity" => 100,
+        "min_stock_quantity" => 10,
+    ],
+    [
+        "name" => "Product 2",
+        "price" => 29.99,
+        "description" => "Description 2",
+        "image_url" => "image2.jpg",
+        "category" => "Category 2",
+        "quantity" => 50,
+        "min_stock_quantity" => 5,
+    ],
+    [
+        "name" => "Product 1",
+        "price" => 19.99,
+        "description" => "Description 1",
+        "image_url" => "image1.jpg",
+        "category" => "Category 1",
+        "quantity" => 100,
+        "min_stock_quantity" => 10,
+    ],
+    [
+        "name" => "Product 2",
+        "price" => 29.99,
+        "description" => "Description 2",
+        "image_url" => "image2.jpg",
+        "category" => "Category 2",
+        "quantity" => 50,
+        "min_stock_quantity" => 5,
+    ],
+    [
+        "name" => "Product 1",
+        "price" => 19.99,
+        "description" => "Description 1",
+        "image_url" => "image1.jpg",
+        "category" => "Category 1",
+        "quantity" => 100,
+        "min_stock_quantity" => 10,
+    ],
+    [
+        "name" => "Product 2",
+        "price" => 29.99,
+        "description" => "Description 2",
+        "image_url" => "image2.jpg",
+        "category" => "Category 2",
+        "quantity" => 50,
+        "min_stock_quantity" => 5,
+    ],
     // Add more products as needed
 ];
 
 // Prepare the SQL query
 $query = "INSERT INTO products (name, price, description, image_url, category, quantity, min_stock_quantity) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-// Use a transaction to ensure atomicity
-$database->executeQuery("START TRANSACTION");
+
 
 try {
     // Loop through each product and execute the query
@@ -55,8 +126,6 @@ try {
         $database->executeQuery($query, $params);
     }
 
-    // Commit the transaction if all queries are successful
-    $database->executeQuery("COMMIT");
 
     echo "Products added successfully.";
 } catch (Exception $e) {
