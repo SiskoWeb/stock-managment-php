@@ -82,6 +82,23 @@ class Database
         }
     }
    
+    public function get_Category()
+    {
+        try {
+
+            //keyword 'DISTINCT' to bring only unique category
+            $stmt = $this->pdo->prepare("SELECT DISTINCT category FROM products");
+    
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+    
+        } catch (PDOException $e) {
+            die("Query failed: " . $e->getMessage());
+        }
+    }
+    
+
 }
 ?>
 

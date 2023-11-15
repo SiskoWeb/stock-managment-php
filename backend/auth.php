@@ -17,6 +17,8 @@ if ($api === 'POST') {
 
     // $userName = htmlspecialchars($_POST['userName']);
     // $password = htmlspecialchars($_POST['password']);
+
+    //this for accepte json 
     $input = json_decode(file_get_contents("php://input"), true);
 
     $userName = htmlspecialchars($input['userName']);
