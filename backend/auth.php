@@ -15,9 +15,12 @@ header('Content-Type: application/json');
 
 if ($api === 'POST') {
 
-    $userName = htmlspecialchars($_POST['userName']);
-    $password = htmlspecialchars($_POST['password']);
+    // $userName = htmlspecialchars($_POST['userName']);
+    // $password = htmlspecialchars($_POST['password']);
+    $input = json_decode(file_get_contents("php://input"), true);
 
+    $userName = htmlspecialchars($input['userName']);
+    $password = htmlspecialchars($input['password']);
     //check  inputs exist
     if(!empty($userName) && !empty($password) ){
         
