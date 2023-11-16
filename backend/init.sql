@@ -1,6 +1,6 @@
 
- <!-- CREATE DATABASE product_managment;
-USE product_managment;
+CREATE DATABASE product_management;
+USE product_management;
 
  CREATE TABLE products (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -12,14 +12,9 @@ USE product_managment;
     quantity INT,
     min_stock_quantity INT
 ); 
- -->
 
- <!-- CREATE TABLE user (
+CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     userName VARCHAR(255) NOT NULL,
-    passowrd VARCHAR(255) NOT NULL,
+    passowrd VARCHAR(255) NOT NULL
 ); 
- -->
-
-
-

@@ -9,7 +9,7 @@ class Database
     private $password;
     private $pdo;
 
-    public function __construct($host = "localhost", $dbname = "product_managment", $user = "root", $password = "")
+    public function __construct($host = "localhost", $dbname = "product_management", $user = "root", $password = "yassine")
     {
         $this->host = $host;
         $this->dbname = $dbname;
