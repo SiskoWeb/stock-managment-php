@@ -3,7 +3,6 @@ import { CategoryType } from "@/types";
 
 import { useQuery } from "@tanstack/react-query";
 import { getCategories } from "@/app/lib/fetch";
-import Loader from "../loader";
 
 export default function SideBar({
   mutationFun,
@@ -17,7 +16,6 @@ export default function SideBar({
     queryFn: async () => getCategories(),
   });
 
-  if (isError) return <h2>Error while fetching data</h2>;
   return (
     <div className="flex items-center justify-center p-4">
       <div className="z-10  w-56 p-3 bg-white  rounded-lg shadow text-center ">
@@ -28,7 +26,7 @@ export default function SideBar({
           <button onClick={() => mutationFun.mutate({ label: null })}>
             All
           </button>
-          {data ? (
+          {!isLoading ? (
             data?.map((item: CategoryType, index: number) => (
               <button
                 key={index}
