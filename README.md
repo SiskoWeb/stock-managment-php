@@ -1,5 +1,10 @@
 # Stock Managament
 
+##DEMO :
+
+https://github.com/SiskoWeb/stock-managment-php/assets/100540300/f56267e7-7081-42e6-9e44-a39edbc1d0e7
+
+
 ## Introduction
 
 This is simple Project to display products and quantity with login page and  protacter route
