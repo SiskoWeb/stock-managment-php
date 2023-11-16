@@ -18,7 +18,8 @@ if ($api === 'GET') {
     $category = isset($_GET['category']) ? $_GET['category'] : null;
 
     // Get products based on the category (passing it to get_Products method)
-    $result = $database->get_Products($category);
+    // $result = $database->get_Products($category);
+    $result = $database->get_Products();
 
     echo json_encode($result);
 } elseif ($api === 'POST') {

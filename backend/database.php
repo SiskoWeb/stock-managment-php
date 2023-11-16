@@ -19,6 +19,8 @@ class Database
         $this->connect();
     }
 
+
+    // this function work automaticly when we inhert class
     private function connect()
     {
         try {
@@ -28,7 +30,7 @@ class Database
             die("Connection failed: " . $e->getMessage());
         }
     }
-
+// this function required to pass query select or insert .. & values 
     public function executeQuery($query, $params = [])
     {
         try {
@@ -41,22 +43,14 @@ class Database
     }
 
     
-    public function get_Products($category = null)
+    public function get_Products()
     {
         $query = "SELECT * FROM products";
 
-        // Add a WHERE clause if a category is specified
-        if ($category !== null) {
-            $query .= " WHERE category = :category";
-        }
 
         try {
             $stmt = $this->pdo->prepare($query);
 
-            // Bind the parameter if a category is specified
-            if ($category !== null) {
-                $stmt->bindParam(':category', $category, PDO::PARAM_STR);
-            }
 
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -101,6 +95,7 @@ class Database
 
 }
 ?>
+
 
 
 
