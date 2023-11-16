@@ -4,20 +4,23 @@
 
 https://github.com/SiskoWeb/stock-managment-php/assets/100540300/f56267e7-7081-42e6-9e44-a39edbc1d0e7
 
+##UPDATE : try to use docker
 
 ## Introduction
 
-This is simple Project to display products and quantity with login page and  protacter route
+This is simple Project to display products and quantity with login page and protacter route
+
 #### FrontEnd : Next-auth React Query Next.js 14
-#### backend : mysql , php , pdo 
+
+#### backend : mysql , php , pdo
 
 ### EndPoints :
+
 /add_products.php
 /auth.php
 /create_user.php
 /get_products.php
 /get_category.php
-
 
 ## Getting Started
 
@@ -37,6 +40,7 @@ List any prerequisites or dependencies users need to have installed before they 
    ```bash
    git clone https://github.com/your-SiskoWeb/stock-managment-php.git
    cd your-project
+   ```
 
 ### Backend Setup
 
@@ -57,8 +61,8 @@ Run Create_User.php
 ### Frontend Setup:
 
 cd Frontend
-npm install 
+npm install
 
 #### Start the Next.js development server:
-npm run dev
 
+npm run dev

@@ -16,5 +16,5 @@ USE product_management;
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     userName VARCHAR(255) NOT NULL,
-    passowrd VARCHAR(255) NOT NULL
+    password VARCHAR(255) NOT NULL
 ); 
