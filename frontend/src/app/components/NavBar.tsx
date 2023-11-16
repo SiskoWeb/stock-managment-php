@@ -4,7 +4,7 @@ import React from "react";
 
 export default function NavBar() {
   return (
-    <nav className="  bg-[#FBFBFB] py-2 shadow-md shadow-black/5">
+    <nav className="  bg-[#FBFBFB] py-2 shadow-md shadow-black/5 w-full">
       <div className="container m-auto px-6 flex w-full flex-wrap items-center justify-between">
         <a
           className=" flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0"

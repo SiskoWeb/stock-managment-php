@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['images.unsplash.com', 'https://fastly.picsum.photos', 'https://picsum.photos']
+        domains: ['images.unsplash.com', 'fastly.picsum.photos', 'picsum.photos']
     }
 }
 

@@ -5,13 +5,15 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import Loading from "./loading";
 import ProductCard from "./ProductCard";
 import SideBar from "./SideBar";
+import Loader from "../loader";
+import axios from "axios";
 
 export default function ListProducts({
   productsList,
 }: {
   productsList: ProductType[];
 }) {
-  const [products, setProducts] = useState<ProductType[]>(productsList);
+  const [products, setProducts] = useState<ProductType[] | any>(productsList);
 
   // fetching data from server
   // const { data, isLoading, isSuccess } = useQuery({
@@ -53,13 +55,14 @@ export default function ListProducts({
     console.log(products);
   };
 
+  if (!products) return <Loader />;
   return (
-    <section className="flex md:flex-row gap-4 items-start flex-col  ">
+    <section className="flex md:flex-row gap-4 justify-center flex-col md:items-start items-center  ">
       {/* passing funs filters to compoenents filter */}
       <SideBar mutationFun={mutationFilter} sorted={sortProducts} />
-      <div className="grid grid-cols-1 m-auto container md:grid-cols-2 lg:grid-cols-3 gap-4  cursor-pointer w-full ">
-        {products.length === 0 ? (
-          <Loading />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4   items-center justify-center p-4  cursor-pointer w-full ">
+        {products?.length === 0 ? (
+          <h3>No Products</h3>
         ) : (
           products?.map((product: ProductType) => (
             <ProductCard key={product.id} product={product} />

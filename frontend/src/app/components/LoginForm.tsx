@@ -25,11 +25,17 @@ export default function LoginForm() {
           redirect: false,
         });
 
-        //if there is error  display it
-        if (res?.error) {
-          setError("email or passowrd incorrect");
+        console.log(res);
+        //if user not exist
+        if (res?.status === 401) {
+          setError("email or passowrd incorrect ");
           setLoading(false);
           return;
+        }
+        // if there is pb in server
+        else if (res?.error === "501") {
+          setError("there is a problem in server");
+          setLoading(false);
         }
         // efter 2 sos rederact to dashboard
         setTimeout(() => {

@@ -3,6 +3,7 @@ import { CategoryType } from "@/types";
 
 import { useQuery } from "@tanstack/react-query";
 import { getCategories } from "@/app/lib/fetch";
+import Loader from "../loader";
 
 export default function SideBar({
   mutationFun,
@@ -11,34 +12,38 @@ export default function SideBar({
   mutationFun: any;
   sorted: () => void;
 }) {
-  const { data, isLoading, isSuccess } = useQuery({
+  const { data, isLoading, isSuccess, isError } = useQuery({
     queryKey: ["products"], // Include category in the query key
     queryFn: async () => getCategories(),
   });
-  if (isLoading) return <p>Loading</p>;
+
+  if (isError) return <h2>Error while fetching data</h2>;
   return (
     <div className="flex items-center justify-center p-4">
-      <div
-        id="dropdown"
-        className="z-10  w-56 p-3 bg-white rounded-lg shadow dark:bg-gray-700"
-      >
-        <h6 className="mb-3 text-sm font-medium text-gray-900 dark:text-white">
+      <div className="z-10  w-56 p-3 bg-white  rounded-lg shadow text-center ">
+        <h6 className="mb-3 text-sm font-medium text-white  bg-blue-500 rounded-md">
           Categoreis
         </h6>
-        <ul className="space-y-2 text-sm flex flex-col">
+        <ul className="space-y-2 text-sm flex flex-col underline">
           <button onClick={() => mutationFun.mutate({ label: null })}>
             All
           </button>
-          {data?.map((item: CategoryType, index: number) => (
-            <button
-              key={index}
-              onClick={() => mutationFun.mutate({ label: item.category })}
-            >
-              {item.category}
-            </button>
-          ))}
+          {data ? (
+            data?.map((item: CategoryType, index: number) => (
+              <button
+                key={index}
+                onClick={() => mutationFun.mutate({ label: item.category })}
+              >
+                {item.category}
+              </button>
+            ))
+          ) : (
+            <p>Loading</p>
+          )}
+          <button className="border-green-500" onClick={() => sorted()}>
+            sorted
+          </button>
         </ul>
-        <button onClick={() => sorted()}>sorted</button>
       </div>
     </div>
   );

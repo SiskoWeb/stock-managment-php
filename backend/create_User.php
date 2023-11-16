@@ -16,6 +16,7 @@ $query = "INSERT INTO users (userName, password) VALUES (?, ?)";
 
 
 try {
+    
     // Execute the query with user data
     $params = [
         $userToAdd['userName'],

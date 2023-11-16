@@ -2,10 +2,10 @@ import { UserType } from "@/types";
 
 export const getProduct = async (category: string | null = null) => {
   try {
-    const url = category
-      ? `http://localhost/Stocker/backend/get_Products.php?category=${category}`
-      : "http://localhost/Stocker/backend/get_Products.php";
-    const response = await fetch(url);
+    const baseURL: string | any = process.env.api;
+    const url = category ? `${baseURL}?category=${category}` : baseURL;
+
+    const response = await fetch(baseURL);
 
     if (!response.ok) {
       // Handle non-2xx responses
@@ -16,7 +16,7 @@ export const getProduct = async (category: string | null = null) => {
     return data;
   } catch (error: any) {
     console.error("Error:", error.message);
-    throw error; // Propagate the error for further handling, if needed
+    // throw error; // Propagate the error for further handling, if needed
   }
 };
 
@@ -35,7 +35,7 @@ export const getCategories = async () => {
     return data;
   } catch (error: any) {
     console.error("Error:", error.message);
-    throw error; // Propagate the error for further handling, if needed
+    // throw error; // Propagate the error for further handling, if needed
   }
 };
 

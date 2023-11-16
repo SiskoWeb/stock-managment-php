@@ -12,7 +12,7 @@ export type UserType = {
   id?: number;
   userName: string;
   passowrd: string;
-  error?: string;
+  error?: string | number;
 };
 
 export type CategoryType = {

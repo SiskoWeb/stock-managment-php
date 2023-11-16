@@ -35,7 +35,7 @@ if ($api === 'POST') {
             echo json_encode($user);
         } else {
             http_response_code(401);
-            echo json_encode(["error" => "Invalid username or password"]);
+            echo json_encode(["error" => '401']);
         }
         
     }else{
@@ -45,6 +45,6 @@ if ($api === 'POST') {
 
 } else {
     // Handle other request methods
-    echo json_encode(["error" => "Unsupported request method"]);
+    echo json_encode(["error" => '501']);
 }
 ?>
