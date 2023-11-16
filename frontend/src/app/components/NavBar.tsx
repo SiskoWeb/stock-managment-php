@@ -1,8 +1,19 @@
 "use client";
 import { signOut } from "next-auth/react";
-import React from "react";
+import React, { useState } from "react";
+import Loader from "./loader";
 
 export default function NavBar() {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const onSignOutFun = () => {
+    setIsLoading(true);
+    signOut();
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  };
+
+  if (isLoading) return <Loader />;
   return (
     <nav className="  bg-[#FBFBFB] py-2 shadow-md shadow-black/5 w-full">
       <div className="container m-auto px-6 flex w-full flex-wrap items-center justify-between">
@@ -15,7 +26,7 @@ export default function NavBar() {
 
         <button
           className="text-black  hover:text-black/85 smooth-hover"
-          onClick={() => signOut()}
+          onClick={() => onSignOutFun()}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
