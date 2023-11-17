@@ -11,7 +11,7 @@ docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=yassine -d mysql
 
 This is simple Project to display products and quantity with login page and protacter route
 
-#### FrontEnd : Next-auth React Query Next.js 14
+#### FrontEnd :  Next.js
 
 #### backend : mysql , php , pdo
 
