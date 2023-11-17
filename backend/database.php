@@ -34,9 +34,9 @@ class Database
     public function executeQuery($query, $params = [])
     {
         try {
-            $stmt = $this->pdo->prepare($query);
-            $stmt->execute($params);
-            return $stmt;
+            $response = $this->pdo->prepare($query);
+            $response->execute($params);
+            return $response;
         } catch (PDOException $e) {// handle error
             die("Query failed: " . $e->getMessage());
         }
@@ -49,11 +49,11 @@ class Database
 
 
         try {
-            $stmt = $this->pdo->prepare($query);
+            $response = $this->pdo->prepare($query);
 
 
-            $stmt->execute();
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $response->execute();
+            $result = $response->fetchAll(PDO::FETCH_ASSOC);
             return $result;
         } catch (PDOException $e) {
             die("Query failed: " . $e->getMessage());
@@ -65,9 +65,9 @@ class Database
        
 
         try {
-            $stmt = $this->pdo->prepare("SELECT * FROM users WHERE userName = :userName");
-            $stmt->execute(['userName' => $user]); 
-            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+            $response = $this->pdo->prepare("SELECT * FROM users WHERE userName = :userName");
+            $response->execute(['userName' => $user]); 
+            $user = $response->fetch(PDO::FETCH_ASSOC);
             return $user;
          
 
@@ -81,10 +81,10 @@ class Database
         try {
 
             //keyword 'DISTINCT' to bring only unique category
-            $stmt = $this->pdo->prepare("SELECT DISTINCT category FROM products");
+            $response = $this->pdo->prepare("SELECT DISTINCT category FROM products");
     
-            $stmt->execute();
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $response->execute();
+            $result = $response->fetchAll(PDO::FETCH_ASSOC);
             return $result;
     
         } catch (PDOException $e) {

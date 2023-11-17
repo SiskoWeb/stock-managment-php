@@ -5,6 +5,7 @@
 https://github.com/SiskoWeb/stock-managment-php/assets/100540300/f56267e7-7081-42e6-9e44-a39edbc1d0e7
 
 ##UPDATE : try to use docker
+docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=yassine -d mysql
 
 ## Introduction
 
